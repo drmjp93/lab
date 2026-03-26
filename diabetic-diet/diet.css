@@ -1,0 +1,182 @@
+/* --- Base Layout --- */
+.diet-main { 
+  margin-top: 25px !important; 
+  padding-top: 10px !important; 
+  display: flex; /* Screen-only flexbox */
+  flex-direction: column;
+}
+.header { margin-bottom: 24px !important; }
+
+/* SCREEN ONLY: Push Diet Chart & Footer to the bottom */
+#diet-section { order: 99; }
+footer { order: 100; margin-top: 30px; }
+
+/* --- Top Navigation & Buttons --- */
+.top-nav { margin-bottom: 16px; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 6px 14px; border-radius: 8px;
+  text-decoration: none; font-size: 0.85rem; font-weight: 600;
+  transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.back-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+.action-buttons-group { display: flex; gap: 12px; align-items: center; }
+
+/* The Print Button */
+.print-btn {
+  cursor: pointer; padding: 8px 16px; border-radius: 999px;
+  border: none; background: var(--accent); color: var(--accent-contrast);
+  font-size: 0.85rem; font-weight: 600; transition: all 0.25s ease;
+  height: 38px; display: flex; align-items: center; gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.print-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+/* --- 1. Emergency Banner --- */
+.alert-card {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  border-radius: 12px; padding: 20px;
+  margin-bottom: 20px;
+}
+[data-theme="dark"] .alert-card { background: rgba(239, 68, 68, 0.15); }
+.alert-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.alert-icon { font-size: 1.4rem; }
+.alert-header h3 { margin: 0; color: #ef4444; font-size: 1.2rem; }
+.alert-list { margin: 0; padding-left: 20px; color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+.alert-list li { margin-bottom: 6px; }
+
+/* --- Sections --- */
+.section-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.section-title { margin-top: 0; margin-bottom: 20px; font-size: 1.3rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+/* --- 2. Lab Protocol Steps --- */
+.lab-steps { display: flex; flex-direction: column; gap: 12px; }
+.step { display: flex; align-items: flex-start; gap: 14px; background: var(--bg); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
+.step-num { 
+  background: var(--text); color: var(--bg); width: 28px; height: 28px; 
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+  font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+}
+.step-text { font-size: 0.95rem; line-height: 1.5; color: var(--text); padding-top: 3px;}
+
+/* --- 3. Diet Timeline --- */
+.special-note { background: var(--bg); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; color: var(--text); margin-bottom: 24px; border-left: 4px solid var(--accent); }
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 8px; bottom: 0;
+  width: 2px; background: var(--border);
+}
+.time-block { position: relative; margin-bottom: 24px; }
+.time-block:last-child { margin-bottom: 0; }
+.time-block::before {
+  content: ''; position: absolute; left: -24px; top: 5px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--card);
+}
+.time-label { font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 6px; }
+.time-content { background: var(--bg); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
+.time-content p { margin: 0 0 6px 0; font-size: 0.95rem; line-height: 1.5; color: var(--muted); }
+.time-content p:last-child { margin-bottom: 0; }
+[data-theme="dark"] .time-content p { color: #d1d5db; }
+
+/* Screen only elements */
+.print-only { display: none; }
+
+/* --- Mobile Header Fix --- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+  
+  .action-buttons-group {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap safely on tiny screens */
+    gap: 12px;
+  }
+
+  .theme-toggle {
+    position: static !important; /* Stops the button from floating on top of Print */
+  }
+}
+/* =========================================
+   PRINT STYLES (Pure HTML Order to prevent Chrome Bugs)
+   ========================================= */
+@media print {
+  @page { margin: 0.4in; }
+
+  /* Force light mode variables */
+  :root, [data-theme="dark"] {
+    --bg: #ffffff !important;
+    --card: #ffffff !important;
+    --border: #cccccc !important;
+    --text: #000000 !important;
+    --muted: #222222 !important;
+    --accent: #000000 !important; 
+  }
+
+  body { background: white !important; color: black !important; margin: 0 !important; }
+  
+  /* KILL Flexbox entirely for printing to prevent the ghost page bug */
+  .diet-main { 
+    display: block !important; 
+    max-width: 100% !important; 
+    margin: 0 !important; 
+    padding: 0 !important; 
+  }
+  
+  /* Remove flex orders */
+  #diet-section { 
+    order: unset !important; 
+    margin-bottom: 0 !important;
+    page-break-after: always !important; /* Clean break after diet chart */
+    break-after: page !important;
+  }
+  footer { order: unset !important; }
+
+  /* Hide UI elements */
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  
+  /* Compact Headers */
+  .print-header { text-align: center; margin-bottom: 12px; }
+  .print-header h2 { margin: 0 0 4px 0; font-size: 20pt; color: black; }
+  .print-header p { margin: 0 0 6px 0; font-size: 11pt; color: #555; }
+  .print-meta { display: inline-block; background: transparent !important; padding: 2px 8px; border-radius: 4px; font-size: 10pt; font-weight: bold; border: 1px solid #ccc;}
+  .print-header hr { margin: 12px 0; border: none; border-top: 2px solid black; }
+  .print-header h1 { font-size: 15pt; text-align: center; margin: 0; }
+
+  /* Compact Alert Card */
+  .alert-card { background: transparent !important; border: 2px solid black !important; padding: 10px 14px !important; margin-bottom: 14px !important; }
+  .alert-header h3 { color: black !important; font-size: 12pt !important; }
+  .alert-list { font-size: 10.5pt !important; line-height: 1.4 !important; }
+  .alert-list li { margin-bottom: 4px !important; }
+
+  /* Compact Sections */
+  .section-card { border: none !important; box-shadow: none !important; padding: 0 !important; margin-bottom: 14px !important;}
+  .section-title { color: black !important; border-bottom: 2px solid black !important; font-size: 13pt !important; padding-bottom: 4px !important; margin-bottom: 10px !important; }
+  
+  /* Compact Lab Steps */
+  .lab-steps { gap: 8px !important; }
+  .step { background: transparent !important; border-color: #999 !important; padding: 8px 12px !important; page-break-inside: avoid; }
+  .step-num { background: white !important; color: black !important; border: 2px solid black !important; width: 22px !important; height: 22px !important; font-size: 0.85rem !important; }
+  .step-text { font-size: 10.5pt !important; padding-top: 1px !important; }
+
+  /* Compact Diet Timeline */
+  .special-note { background: transparent !important; border: 1px solid black !important; border-left: 4px solid black !important; padding: 8px 12px !important; margin-bottom: 12px !important; font-size: 10.5pt !important; page-break-inside: avoid; }
+  .time-block { margin-bottom: 12px !important; page-break-inside: avoid; }
+  .time-content { background: transparent !important; border-color: #999 !important; padding: 8px 12px !important; }
+  .time-label { font-size: 11pt !important; margin-bottom: 4px !important; }
+  .time-content p { font-size: 10.5pt !important; margin-bottom: 4px !important; }
+  
+  .timeline::before { background: black !important; }
+  .time-block::before { background: white !important; border-color: black !important; }
+}

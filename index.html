@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <!-- Prevent iOS zoom on input -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Dr. Mit's Labs</title>
+<link rel="icon" type="image/svg+xml"
+href='data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+  <!-- Background -->
+  <rect width="100" height="100" fill="black"/>
+
+  <!-- Flask body -->
+  <path d="
+    M45 22
+    V36
+    L25 78
+    H75
+    L55 36
+    V22"
+    fill="none"
+    stroke="white"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- Neck rim (ring) -->
+  <rect x="42" y="14" width="16" height="8"
+        rx="3"
+        fill="none"
+        stroke="white"
+        stroke-width="5"/>
+
+  <!-- Liquid -->
+  <path d="
+    M34 62
+    H66
+    L61 78
+    H39 Z"
+    fill="white"/>
+
+  <!-- Bubbles -->
+  <circle cx="50" cy="54" r="3" fill="white"/>
+  <circle cx="58" cy="50" r="2" fill="white"/>
+
+</svg>'>
+  <link rel="stylesheet" href="/shared/theme.css">
+  <link rel="stylesheet" href="/shared/layout.css">
+  <link rel="stylesheet" href="/shared/toggle.css">
+
+
+  <script src="/shared/theme.js" defer></script>
+</head>
+
+<body>
+  <main>
+
+    <div class="header">
+      <div>
+        <div class="title">Dr. Mit's Lab</div>
+        <div class="subtitle">
+          Tools & Technical Utilities
+        </div>
+      </div>
+
+       <button class="theme-toggle" aria-label="Toggle theme">
+  <span class="theme-icon-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </span>
+  <span class="theme-label">Dark</span>
+</button>
+
+
+    </div>
+
+    <div class="grid">
+
+    <a class="card" href="/opd-triage">
+      <div class="card-title">OPD Triage System</div>
+      <div class="card-desc">Rapid symptom-based department assignment with Gujarati support.</div>
+    </a>
+
+      <a class="card" href="/diabetic-diet">
+      <div class="card-title">Diabetic Resource</div>
+      <div class="card-desc">Printable Gujarati diet chart, lab instructions</div>
+    </a>
+
+      <a class="card" href="/lab-explainer">
+      <div class="card-title">Lab Investigation Guide</div>
+      <div class="card-desc">Rapid scenario-based instructions for the reception desk.</div>
+    </a>
+      
+       <a class="card" href="/csv-to-json">
+      <div class="card-title">CSV to JSON Converter</div>
+      <div class="card-desc">Parse and convert CSV data to JSON objects using PapaParse.</div>
+    </a>
+      
+      
+    </div>
+    
+      <footer class="no-print" style="text-align: center; margin-top: 50px; padding: 20px; color: var(--muted);">
+  <div style="margin-bottom: 12px; font-size: 0.9rem;">
+       <a href="https://tools.drmjp93.in" target="_blank" rel="noopener">tools.drmjp93.in</a> · 
+    <a href="https://labs.drmjp93.in">labs.drmjp93.in</a>
+  </div>
+  <div style="font-size: 0.85rem; margin-bottom: 8px;">
+    © 2026 Dr. Mit Panchani. All Rights Reserved.
+  </div>
+  <div style="font-size: 0.8rem; opacity: 0.8;">
+    Total Visits: <strong id="visitCount" style="color: var(--text);">...</strong>
+  </div>
+</footer>
+    
+  </main>
+</body>
+</html>

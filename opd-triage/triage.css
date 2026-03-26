@@ -1,0 +1,186 @@
+/* --- Overrides for Maximum Screen Real Estate (720p/1080p fit) --- */
+.triage-main {
+  margin-top: 25px !important; /* Overrides the 80px margin from layout.css */
+  padding-top: 10px !important;
+}
+
+.header {
+  margin-bottom: 20px !important; /* Brings the banner up closer to the title */
+}
+
+/* --- Header & Navigation --- */
+.top-nav {
+  margin-bottom: 16px;
+}
+
+/* Upgraded Back Button UI */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.back-btn:hover { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+  transform: translateY(-1px);
+}
+
+.action-buttons-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.lang-btn {
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+.lang-label { display: inline-block; transition: opacity 0.2s ease; }
+.lang-label.fade { opacity: 0; }
+
+/* --- Layout --- */
+.triage-container {
+  margin-top: 16px; /* Reduced gap below result banner */
+}
+
+/* MASONRY COLUMN LAYOUT: Packs cards tightly to eliminate wasted vertical space */
+#pills-container {
+  column-count: 1;
+  column-gap: 16px;
+}
+@media (min-width: 768px) {
+  #pills-container { column-count: 2; }
+}
+@media (min-width: 1024px) {
+  #pills-container { column-count: 3; }
+}
+
+/* Individual Category Card */
+.category-card {
+  break-inside: avoid; /* Prevents cards from splitting across columns */
+  page-break-inside: avoid;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px; /* Space below each brick */
+  display: inline-block; /* Required for masonry flow */
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.category-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Wrapper for chips */
+.pill-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Soft Material-style Chips */
+.symptom-pill {
+  background: var(--bg);
+  border: 1px solid transparent;
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.symptom-pill:hover { background: var(--border); }
+
+.symptom-pill.selected {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+/* --- Compact Result Banner --- */
+.result-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 20px; /* Slimmer padding to save vertical space */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.result-card.standard { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.result-card.standard #result-dept { color: var(--accent); }
+.result-card.emergency { background: #ef4444; border-color: #ef4444; color: #ffffff; }
+
+.result-card h3 { 
+  margin: 0; 
+  font-size: 1.3rem; 
+}
+
+.result-symptoms { 
+  margin: 0; 
+  font-size: 0.95rem; 
+  line-height: 1.4; 
+  color: var(--muted); 
+}
+.result-card.standard .result-symptoms { color: var(--text); }
+.result-card.emergency .result-symptoms { color: rgba(255,255,255,0.9); }
+
+/* Mobile header stacking */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* --- Mobile Header Fix --- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px; /* Adds breathing room below the title */
+  }
+  
+  .action-buttons-group {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .theme-toggle {
+    position: static !important; /* Stops the button from floating away */
+  }
+}

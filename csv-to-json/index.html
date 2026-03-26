@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>CSV to JSON - Dr. Mit Labs</title>
+
+  <link rel="stylesheet" href="/shared/theme.css">
+  <link rel="stylesheet" href="/shared/layout.css">
+  <link rel="stylesheet" href="/shared/toggle.css">
+  <script src="/shared/theme.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <link rel="stylesheet" href="csv.css">
+  <script src="csv.js" defer></script>
+</head>
+<body>
+  <main class="csv-main">
+    
+    <div class="top-nav">
+      <a href="/" class="back-btn">&larr; Back to Labs</a>
+    </div>
+
+    <div class="header">
+      <div>
+        <div class="title">CSV to JSON Converter</div>
+        <div class="subtitle">
+          Client-side parsing powered by the open-source <a href="https://www.papaparse.com/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">PapaParse</a> library.
+        </div>
+      </div>
+
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </div>
+
+    <div class="converter-layout">
+      
+      <div class="io-panel">
+        <div class="panel-header">
+          <label>CSV Input</label>
+          <div class="header-actions">
+            <input type="file" id="csv-file" accept=".csv" style="display: none;">
+            <button id="upload-btn" class="text-btn accent-text">Upload File</button>
+            <button id="clear-btn" class="text-btn">Clear</button>
+          </div>
+        </div>
+        <textarea id="csv-input" class="code-area" placeholder="id,name,department&#10;1,John Doe,Cardiology&#10;2,Jane Smith,Neurology"></textarea>
+      </div>
+
+      <div class="controls-panel">
+        <button id="convert-btn" class="primary-btn">Convert to JSON</button>
+        
+        <div class="options-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="header-check" checked> First row is header
+          </label>
+        </div>
+      </div>
+
+      <div class="io-panel">
+        <div class="panel-header">
+          <label>JSON Output</label>
+          <button id="copy-btn" class="text-btn accent-text">Copy JSON</button>
+        </div>
+        <textarea id="json-output" class="code-area" readonly placeholder="[&#10;  { ... }&#10;]"></textarea>
+      </div>
+
+    </div>
+
+    <footer class="no-print" style="text-align: center; margin-top: 50px; padding: 20px; color: var(--muted);">
+      <div style="margin-bottom: 12px; font-size: 0.9rem;">
+        <a href="https://tools.drmjp93.in" target="_blank" rel="noopener">tools.drmjp93.in</a> · 
+        <a href="https://labs.drmjp93.in">labs.drmjp93.in</a>
+      </div>
+      <div style="font-size: 0.85rem; margin-bottom: 8px;">
+        © 2026 Dr. Mit Panchani. All Rights Reserved.
+      </div>
+      <div style="font-size: 0.8rem; opacity: 0.8;">
+        Total Visits: <strong id="visitCount" style="color: var(--text);">...</strong>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* ===============================
+   THEME TOGGLE – DYNAMIC PILL
+   =============================== */
+
+.theme-toggle {
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.theme-label {
+  display: inline-block;
+  transition: opacity 0.25s ease;
+}
+
+.theme-label.fade {
+  opacity: 0;
+}
+
+/* DEFAULT (LIGHT MODE): SHOW MOON, HIDE SUN */
+/* (BECAUSE THE BUTTON SAYS "DARK" TO SWITCH TO DARK) */
+.icon-sun { display: none; }
+.icon-moon { display: inline-block; }
+
+/* DARK MODE: SHOW SUN, HIDE MOON */
+[data-theme="dark"] .icon-sun { display: inline-block; }
+[data-theme="dark"] .icon-moon { display: none; }
+
+/* OPTIONAL: ALIGNMENT FIX */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+}/* ADD THIS TO toggle.css */
+.theme-icon-container {
+  display: inline-flex;
+  transition: opacity 0.25s ease, transform 0.25s ease; /* MATCH THE LABEL TRANSITION */
+}
+
+.theme-icon-container.fade {
+  opacity: 0;
+  transform: scale(0.8); /* OPTIONAL: ADDS A SUBTLE SHRINK EFFECT DURING FADE */
+}
