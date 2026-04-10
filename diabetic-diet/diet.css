@@ -113,8 +113,12 @@ footer { order: 100; margin-top: 30px; }
    ========================================= */
 @media print {
   /* REDUCED PAGE MARGINS TO MAXIMIZE SPACE */
-  @page { margin: 0.25in; }
-
+  @page {  margin-top: 35mm;
+    margin-bottom: 15mm;
+    margin-left: 0.75in;
+    margin-right: 0.75in; 
+        }
+  
   /* FORCE LIGHT MODE VARIABLES */
   :root, [data-theme="dark"] {
     --bg: #ffffff !important;
