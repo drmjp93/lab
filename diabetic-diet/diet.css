@@ -140,7 +140,7 @@ footer { order: 100; margin-top: 30px; }
     order: unset !important; 
     margin-bottom: 10px !important;
   }
-  footer { display: none !important; } /* HIDE FOOTER TO SAVE SPACE, OR UNSET ORDER IF YOU WANT TO KEEP IT */
+/*  footer { display: none !important; } /* HIDE FOOTER TO SAVE SPACE, OR UNSET ORDER IF YOU WANT TO KEEP IT */
 
   /* HIDE UI ELEMENTS */
   .no-print { display: none !important; }
