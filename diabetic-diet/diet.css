@@ -113,9 +113,9 @@ footer { order: 100; margin-top: 30px; }
    ========================================= */
 @media print {
   /* REDUCED PAGE MARGINS TO MAXIMIZE SPACE */
-  @page {  margin-top: 25mm;
-    margin-bottom: 15mm;
-    margin-left: 0.75in;
+  @page {  margin-top: 15mm;
+    margin-bottom: 1mm;
+    margin-left: 5mm;
     margin-right: 5mm; 
         }
   
