@@ -7,3 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Listen for the background print command from the OPD tool
+window.addEventListener("message", (event) => {
+  // When the secret signal is received, trigger the print!
+  if (event.data === "trigger_print") {
+    window.print();
+  }
+});
