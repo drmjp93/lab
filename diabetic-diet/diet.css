@@ -96,7 +96,7 @@ footer { order: 100; margin-top: 30px; }
 @media print {
   @page {
     size: A4 portrait;
-    margin: 30mm 6mm 4mm 6mm;
+    margin: 25mm 6mm 4mm 6mm;
   }
 
   :root, [data-theme="dark"] {
@@ -122,7 +122,7 @@ footer { order: 100; margin-top: 30px; }
     display: block !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 30mm 0 0 0 !important; 
+    padding: 25mm 0 0 0 !important; 
   }
 
   #diet-section { order: unset !important; margin-bottom: 8px !important; }
@@ -135,7 +135,7 @@ footer { order: 100; margin-top: 30px; }
   .print-header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: 33mm;
+    height: 25mm;
     padding: 4mm 6mm 2mm;
     box-sizing: border-box;
     text-align: center;
