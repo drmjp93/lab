@@ -119,11 +119,12 @@ footer { order: 100; margin-top: 30px; }
     line-height: 1.3 !important;
   }
 
-  .diet-main {
+   .diet-main {
     display: block !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
+    /* This forces the 40mm top margin safely across all browsers */
+    padding: 40mm 0 0 0 !important; 
   }
 
   #diet-section { order: unset !important; margin-bottom: 8px !important; }
