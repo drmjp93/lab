@@ -96,7 +96,7 @@ footer { order: 100; margin-top: 30px; }
 @media print {
   @page {
     size: A4 portrait;
-    margin: 40mm 6mm 4mm 6mm;
+    margin: 30mm 6mm 4mm 6mm;
   }
 
   :root, [data-theme="dark"] {
